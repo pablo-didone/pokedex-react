@@ -16,12 +16,13 @@
     .pokemon-name {
       color: #fff;
       font-size: 18px;
+      font-weight: bold;
       margin: 0 10px 0 0;
     }
 
     .pokemon-type {
       color: #ccc;
-      font-size: 14px;
+      font-size: 15px;
       margin: 0;
     }
 
@@ -53,7 +54,6 @@
     border-top: solid 1px #eee;
 
     .type-label {
-      background: #ccc;
       color: white;
       margin-left: 2px;
       font-size: 18px;

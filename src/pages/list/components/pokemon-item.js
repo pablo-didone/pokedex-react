@@ -12,8 +12,11 @@ const PokemonItem = (props) => (
       <img src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)}/>
     </div>
     <div className="pokemon-types">
-      <span className={`type-label type-`}>Grass</span>
-      <span className={`type-label type-`}>Poisson</span>
+    {
+      props.type.map((e, i) => (
+        <span className={`type-label type-${e.toLowerCase()}`}>{e}</span>
+      ))
+    }
     </div>
   </div>
 );
