@@ -1,0 +1,23 @@
+.Header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #d9230f;
+
+  .Header-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .Header-brand {
+    color: #fac0ba;;
+    font-size: 22px;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+}
