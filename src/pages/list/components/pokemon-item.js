@@ -9,12 +9,12 @@ const PokemonItem = (props) => (
       <p className="pokemon-number">{`#${props.id}`}</p>
     </div>
     <div className="pokemon-image">
-      <img src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)}/>
+      <img src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)} alt={props.name}/>
     </div>
     <div className="pokemon-types">
     {
       props.type.map((e, i) => (
-        <span className={`type-label type-${e.toLowerCase()}`}>{e}</span>
+        <span className={`type-label type-${e.toLowerCase()}`} key={i}>{e}</span>
       ))
     }
     </div>
