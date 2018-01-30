@@ -1,19 +1,19 @@
 import React from 'react';
 import './pokemon-item.scss';
 
-const PokemonItem = () => (
+const PokemonItem = (props) => (
   <div className="PokemonItem">
     <div className="header">
-      <p className="pokemon-name">Bulbasaur</p>
-      <p className="pokemon-type">Seed pokemon</p>
-      <p className="pokemon-number">#001</p>
+      <p className="pokemon-name">{props.name}</p>
+      <p className="pokemon-type">{props.species}</p>
+      <p className="pokemon-number">{`#${props.id}`}</p>
     </div>
     <div className="pokemon-image">
-      <img src={require("../../../assets/images/pokemons/bulbasaur.jpg")}/>
+      <img src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)}/>
     </div>
     <div className="pokemon-types">
-      <span className="type-label">Grass</span>
-      <span className="type-label">Poisson</span>
+      <span className={`type-label type-`}>Grass</span>
+      <span className={`type-label type-`}>Poisson</span>
     </div>
   </div>
 );
