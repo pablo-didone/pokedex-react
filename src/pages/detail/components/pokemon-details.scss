@@ -1,0 +1,47 @@
+.PokemonDetails {
+  .Pokemon-details-header {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 20px;
+    margin: 50px auto 0;
+    border-bottom: solid 1px #ddd;
+    width: 90%;
+
+    .Pokemon-details-header-title {
+      margin: 0;
+      font-weight: 300;
+      line-height: 1.1;
+      color: #444444;
+      font-size: 36px;
+    }
+
+    .Pokemon-details-header-number {
+      background: #d9230f;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 16px;
+      padding: 8px 15px;
+      margin: 0 5px 0 auto;
+    }
+  }
+
+  .PokemonDetails-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 100px auto;
+
+    .PokemonDetails-image {
+      text-align: center;
+      margin: 0 0 50px 0;
+      img {
+        height: 300px;
+      }
+    }
+
+    .PokemonDetails-details {
+      min-width: 500px;
+    }
+  }
+}

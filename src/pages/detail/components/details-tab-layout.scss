@@ -1,0 +1,111 @@
+.DetailsTabLayout {
+  .DetailsTab-tab-container {
+    display: flex;
+
+    .DetailsTab-tab {
+      cursor: pointer;
+      border-bottom: solid 1px #eee;
+      flex: 1;
+      text-align: center;
+
+      .DetailsTab-tab-text {
+        color: #d9230f;
+        margin-bottom: 10px;
+      }
+
+      &.active {
+        cursor: default;
+        border: solid 1px #eee;
+        border-bottom: none;
+
+        .DetailsTab-tab-text {
+          color: #888;
+        }
+      }
+    }
+  }
+
+  .DetailsTab-body {
+    background: #fff;
+    margin: 10px 0 0 0;
+    border: solid 1px #eee;
+
+    .DetailsTab-body-row {
+      display: flex;
+      padding: 5px 15px;
+      border-bottom: solid 1px #eee;
+      align-items: center;
+      justify-content: flex-end;
+
+      .DetailsTab-body-title {
+        margin-right: auto;
+        font-size: 15px;
+        color: #777;
+        font-weight: bold;
+      }
+
+      .DetailsTab-body-desc {
+        font-size: 14px;
+        color: #777;
+      }
+
+      &.DetailsTab-body-pokedex-type {
+        .DetailsTab-body-title {
+          margin-right: auto;
+        }
+
+        .DetailsTab-body-type-pill {
+          color: #fff;
+          background: #999;
+          padding: 3px 7px;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+      }
+
+      &.DetailsTab-body-pokedex-abilities {
+        border: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .DetailsTab-body-list {
+          margin: 0;
+
+          li {
+            color: #777;
+          }
+        }
+      }
+    }
+
+    .DetailsTab-body-stats {
+      .DetailsTab-body-stats-value {
+        color: #fff;
+        background: #d9230f;
+        padding: 3px 7px;
+        border-radius: 20px;
+        margin: 0;
+      }
+    }
+
+    .DetailsTab-body-evolution {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .DetailsTab-body-evolution-item {
+        margin: 20px 0;
+        img {
+          height: 150px;
+        }
+      }
+
+      .DetailsTab-body-evolution-item-name {
+        color: #d9230f;
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}
