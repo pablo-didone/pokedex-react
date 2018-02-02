@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import PokemonList from "./pages/list/components/pokemon-list";
 import Header from "./widgets/components/header";
@@ -10,22 +10,19 @@ class App extends Component {
   render() {
     return (
       <AppLayout>
-        <Header />
+        <Link to="/pokemons">
+          <Header />
+        </Link>
         <Switch>
           <Route
             path="/pokemons/:id"
             render={({ match }) => {
-              const pokemon = data.find((e) => (
-                e.id === match.params.id
-              ))
+              const pokemon = data.find(e => e.id === match.params.id);
 
               return <PokemonDetails pokemon={pokemon} />;
             }}
           />
-          <Route
-            path="/pokemons"
-            render={() => <PokemonList data={data} />}
-          />
+          <Route path="/pokemons" render={() => <PokemonList data={data} />} />
         </Switch>
       </AppLayout>
     );

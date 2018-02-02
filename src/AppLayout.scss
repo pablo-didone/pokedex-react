@@ -7,6 +7,10 @@ html {
     font-family: 'Open Sans';
     height: 100%;
 
+    a {
+      text-decoration: none;
+    }
+
     .type-normal {
       background-color: #a8a878;
       border: solid 1px #6d6d4e;
