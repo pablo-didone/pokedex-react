@@ -6,6 +6,7 @@
     "node-sass": "^4.7.2",
     "sass-loader": "6.0.6"
   },
+  "license": "MIT",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
