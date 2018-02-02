@@ -13,7 +13,7 @@ class DetailsTab extends Component {
   render() {
     return (
       <DetailsTabLayout
-        pokemonData={this.props.pokemonData}
+        pokemon={this.props.pokemon}
         selectedTab={this.state.selectedTab}
         onSelectTab={this.selectTab}
       />

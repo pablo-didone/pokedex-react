@@ -1,7 +1,8 @@
-import React from 'react';
-import './pokemon-item.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./pokemon-item.scss";
 
-const PokemonItem = (props) => (
+const PokemonItem = props => (
   <div className="PokemonItem">
     <div className="header">
       <p className="pokemon-name">{props.name}</p>
@@ -9,14 +10,19 @@ const PokemonItem = (props) => (
       <p className="pokemon-number">{`#${props.id}`}</p>
     </div>
     <div className="pokemon-image">
-      <img src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)} alt={props.name}/>
+      <Link to={`/pokemons/${props.id}`}>
+        <img
+          src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)}
+          alt={props.name}
+        />
+      </Link>
     </div>
     <div className="pokemon-types">
-    {
-      props.type.map((e, i) => (
-        <span className={`type-label type-${e.toLowerCase()}`} key={i}>{e}</span>
-      ))
-    }
+      {props.type.map((e, i) => (
+        <span className={`type-label type-${e.toLowerCase()}`} key={i}>
+          {e}
+        </span>
+      ))}
     </div>
   </div>
 );

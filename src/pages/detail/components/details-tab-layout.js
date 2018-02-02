@@ -28,43 +28,53 @@ const DetailsTabLayout = props => (
         <div className="DetailsTab-body-pokedex">
           <div className="DetailsTab-body-row DetailsTab-body-pokedex-type">
             <p className="DetailsTab-body-title">Type</p>
-            <span className="DetailsTab-body-type-pill">Grass</span>
+            {props.pokemon.type.map((e, i) => (
+              <span
+                className={`DetailsTab-body-type-pill type-${e.toLowerCase()}`}
+                key={i}
+              >
+                {e}
+              </span>
+            ))}
           </div>
           <div className="DetailsTab-body-row DetailsTab-body-pokedex-height-weight">
             <p className="DetailsTab-body-title">Height</p>
-            <p className="DetailsTab-body-desc">45654654</p>
+            <p className="DetailsTab-body-desc">{props.pokemon.height}</p>
           </div>
           <div className="DetailsTab-body-row DetailsTab-body-pokedex-height-weight">
             <p className="DetailsTab-body-title">Weight</p>
-            <p className="DetailsTab-body-desc">45654654</p>
+            <p className="DetailsTab-body-desc">{props.pokemon.weight}</p>
           </div>
           <div className="DetailsTab-body-row DetailsTab-body-pokedex-abilities">
             <p className="DetailsTab-body-title">Abilities</p>
             <ul className="DetailsTab-body-list">
-              <li>asdasd</li>
-              <li>asdasd</li>
+              {props.pokemon.abilities.map((el, i) => <li>{el}</li>)}
             </ul>
           </div>
         </div>
       ) : props.selectedTab === 2 ? (
-        [1, 2, 3, 4].map((el, i) => (
-          <div className="DetailsTab-body-stats">
-            <div className="DetailsTab-body-row">
-              <p className="DetailsTab-body-title">Height</p>
-              <p className="DetailsTab-body-stats-value">123</p>
+        <div className="DetailsTab-body-stats">
+          {Object.keys(props.pokemon.stats).map((el, i) => (
+            <div className="DetailsTab-body-row" key={i}>
+              <p className="DetailsTab-body-title">{el.toUpperCase()}</p>
+              <p className="DetailsTab-body-stats-value">
+                {props.pokemon.stats[el]}
+              </p>
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         props.selectedTab === 3 && (
           <div className="DetailsTab-body-evolution">
-            <div className="DetailsTab-body-evolution-item">
-              <img
-                src={require("../../../assets/images/pokemons/bulbasaur.jpg")}
-                alt="asd"
-              />
-              <p className="DetailsTab-body-evolution-item-name">Bulbasaur</p>
-            </div>
+            {props.pokemon.evolution.map((e, i) => (
+              <div className="DetailsTab-body-evolution-item" key={i}>
+                <img
+                  src={require(`../../../assets/images/pokemons/${e.toLowerCase()}.jpg`)}
+                  alt="asd"
+                />
+                <p className="DetailsTab-body-evolution-item-name">{e}</p>
+              </div>
+            ))}
           </div>
         )
       )}

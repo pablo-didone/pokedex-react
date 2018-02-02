@@ -1,8 +1,8 @@
-import React from 'react';
-import PokemonItem from './pokemon-item';
-import './pokemon-list.scss';
+import React from "react";
+import PokemonItem from "./pokemon-item";
+import "./pokemon-list.scss";
 
-const PokemonList = (props) => (
+const PokemonList = props => (
   <div className="Pokemon-list">
     <div className="Pokemon-list-header">
       <p className="Pokemon-list-header-title">Pokedex</p>
@@ -13,11 +13,7 @@ const PokemonList = (props) => (
       </p>
     </div>
     <div className="Pokemon-list-container">
-      {
-        props.data.map((e, i) => (
-          <PokemonItem {...e} key={i}/>
-        ))
-      }
+      {props.data.map((e, i) => <PokemonItem {...e} key={i} />)}
     </div>
   </div>
 );
