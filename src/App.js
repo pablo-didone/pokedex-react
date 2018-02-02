@@ -15,9 +15,9 @@ class App extends Component {
         </Link>
         <Switch>
           <Route
-            path="/pokemons/:id"
+            path="/pokemons/:name"
             render={({ match }) => {
-              const pokemon = data.find(e => e.id === match.params.id);
+              const pokemon = data.find(e => e.name === match.params.name);
 
               return <PokemonDetails pokemon={pokemon} />;
             }}

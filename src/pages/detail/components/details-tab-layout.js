@@ -1,5 +1,6 @@
 import React from "react";
 import "./details-tab-layout.scss";
+import { Link } from "react-router-dom";
 
 const DetailsTabLayout = props => (
   <div className="DetailsTabLayout">
@@ -48,7 +49,7 @@ const DetailsTabLayout = props => (
           <div className="DetailsTab-body-row DetailsTab-body-pokedex-abilities">
             <p className="DetailsTab-body-title">Abilities</p>
             <ul className="DetailsTab-body-list">
-              {props.pokemon.abilities.map((el, i) => <li>{el}</li>)}
+              {props.pokemon.abilities.map((el, i) => <li key={i}>{el}</li>)}
             </ul>
           </div>
         </div>
@@ -67,13 +68,15 @@ const DetailsTabLayout = props => (
         props.selectedTab === 3 && (
           <div className="DetailsTab-body-evolution">
             {props.pokemon.evolution.map((e, i) => (
-              <div className="DetailsTab-body-evolution-item" key={i}>
-                <img
-                  src={require(`../../../assets/images/pokemons/${e.toLowerCase()}.jpg`)}
-                  alt="asd"
-                />
-                <p className="DetailsTab-body-evolution-item-name">{e}</p>
-              </div>
+              <Link to={`/pokemons/${e}`} key={i}>
+                <div className="DetailsTab-body-evolution-item">
+                  <img
+                    src={require(`../../../assets/images/pokemons/${e.toLowerCase()}.jpg`)}
+                    alt="asd"
+                  />
+                  <p className="DetailsTab-body-evolution-item-name">{e}</p>
+                </div>
+              </Link>
             ))}
           </div>
         )

@@ -10,7 +10,7 @@ const PokemonItem = props => (
       <p className="pokemon-number">{`#${props.id}`}</p>
     </div>
     <div className="pokemon-image">
-      <Link to={`/pokemons/${props.id}`}>
+      <Link to={`/pokemons/${props.name}`}>
         <img
           src={require(`../../../assets/images/pokemons/${props.name.toLowerCase()}.jpg`)}
           alt={props.name}
