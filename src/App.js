@@ -3,30 +3,42 @@ import { Route, Switch, Link } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import PokemonList from "./pages/list/components/pokemon-list";
 import Header from "./widgets/components/header";
-import data from "./pokemons.json";
 import PokemonDetails from "./pages/detail/components/pokemon-details";
+import { connect } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <AppLayout>
-        <Link to="/pokemons">
-          <Header />
-        </Link>
-        <Switch>
-          <Route
-            path="/pokemons/:name"
-            render={({ match }) => {
-              const pokemon = data.find(e => e.name === match.params.name);
+      <BrowserRouter>
+        <AppLayout>
+          <Link to="/pokemons">
+            <Header />
+          </Link>
+          <Switch>
+            <Route
+              path="/pokemons/:name"
+              render={({ match }) => {
+                const pokemon = this.props.pokemonList.find(
+                  e => e.name === match.params.name
+                );
 
-              return <PokemonDetails pokemon={pokemon} />;
-            }}
-          />
-          <Route path="/pokemons" render={() => <PokemonList data={data} />} />
-        </Switch>
-      </AppLayout>
+                return <PokemonDetails pokemon={pokemon} />;
+              }}
+            />
+            <Route
+              path="/pokemons"
+              render={() => <PokemonList data={this.props.pokemonList} />}
+            />
+          </Switch>
+        </AppLayout>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state, props) => ({
+  pokemonList: state.pokemonList
+});
+
+export default connect(mapStateToProps)(App);

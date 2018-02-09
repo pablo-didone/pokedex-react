@@ -1,13 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import data from "./pokemons.json";
 import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter } from "react-router-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+const initialState = {
+  pokemonList: data
+};
+
+const store = createStore(state => state, initialState);
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById("root")
 );
 registerServiceWorker();
