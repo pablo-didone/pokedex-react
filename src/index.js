@@ -5,12 +5,14 @@ import data from "./pokemons.json";
 import registerServiceWorker from "./registerServiceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import pokemonListReducer from './reducers/pokemon-list';
 
 const initialState = {
-  pokemonList: data
+  pokemonList: data,
+  filteredPokemonList: []
 };
 
-const store = createStore(state => state, initialState);
+const store = createStore(pokemonListReducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>

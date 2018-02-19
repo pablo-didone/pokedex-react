@@ -28,7 +28,15 @@ class App extends Component {
             />
             <Route
               path="/pokemons"
-              render={() => <PokemonList data={this.props.pokemonList} />}
+              render={() => (
+                <PokemonList
+                  data={
+                    this.props.filteredPokemonList.length
+                      ? this.props.filteredPokemonList
+                      : this.props.pokemonList
+                  }
+                />
+              )}
             />
           </Switch>
         </AppLayout>
@@ -38,7 +46,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  pokemonList: state.pokemonList
+  pokemonList: state.pokemonList,
+  filteredPokemonList: state.filteredPokemonList
 });
 
 export default connect(mapStateToProps)(App);
